@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PickleQueue PH</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      padding:30px;
+    }
+
+    h1{
+      text-align:center;
+      color:#22c55e;
+      margin-bottom:20px;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .card{
+      background:#1e293b;
+      border-radius:15px;
+      padding:20px;
+      margin-bottom:20px;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-top:10px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+    }
+
+    button{
+      margin-top:15px;
+      width:100%;
+      padding:14px;
+      background:#22c55e;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:18px;
+    }
+
+    button:hover{
+      background:#16a34a;
+    }
+
+    ul{
+      margin-top:15px;
+    }
+
+    li{
+      padding:8px;
+      border-bottom:1px solid #334155;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏓 PickleQueue PH</h1>
+
+<div class="card">
+
+<h2>Add Player</h2>
+
+<input
+id="playerName"
+placeholder="Enter player name">
+
+<button onclick="addPlayer()">
+Add Player
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Players</h2>
+
+<ul id="playerList">
+
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+let players=[];
+
+function addPlayer(){
+
+let input=document.getElementById("playerName");
+
+if(input.value=="") return;
+
+players.push(input.value);
+
+displayPlayers();
+
+input.value="";
+
+}
+
+function displayPlayers(){
+
+let list=document.getElementById("playerList");
+
+list.innerHTML="";
+
+players.forEach((player,index)=>{
+
+list.innerHTML+=`
+<li>${index+1}. ${player}</li>
+`;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
